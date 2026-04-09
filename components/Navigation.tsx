@@ -4,37 +4,41 @@ import Link from 'next/link';
 
 export default function Navigation() {
   return (
-    <nav className="flex justify-between items-center p-4 bg-gray-100">
+    <nav className="flex justify-between items-center p-4 bg-gray-900">
       <Link href="/" className="flex items-center space-x-2">
-        <svg
-          viewBox="0 0 24 24"
-          className="h-6 w-6 fill-current"
-          style={{ fill: '#6200EA' }}
-        >
-          <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
-        </svg>
-        <span className="font-bold text-xl" style={{ color: '#6200EA' }}>
-          Split
-        </span>
+        <div className="flex items-center space-x-2">
+          <svg
+            viewBox="0 0 24 24"
+            className="h-6 w-6"
+            fill="none"
+          >
+            <rect x="3" y="3" width="6" height="6" rx="1" fill="#25ebd2" />
+            <rect x="9" y="9" width="6" height="6" rx="1" fill="#25ebd9" />
+            <rect x="15" y="15" width="6" height="6" rx="1" fill="#25ebd1" />
+          </svg>
+          <span className="font-bold text-xl" style={{ color: '#25ebd1' }}>
+            Splitwise
+          </span>
+        </div>
       </Link>
 
       <div className="flex items-center space-x-12">
         {/* Added new link for 'Your Groups' */}
         <Link
           href="/groups"
-          className="text-gray-700 hover:text-gray-900 hover:underline"
+          className="text-white hover:text-teal-200 hover:underline"
         >
           Your Groups
         </Link>
         <Link
           href="/group"
-          className="text-gray-700 hover:text-gray-900 hover:underline"
+          className="text-white hover:text-teal-200 hover:underline"
         >
           Create Group
         </Link>
         <Link
           href="/expense"
-          className="text-gray-700 hover:text-gray-900 hover:underline"
+          className="text-white hover:text-teal-200 hover:underline"
         >
           Add Expense
         </Link>

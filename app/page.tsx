@@ -15,7 +15,7 @@ export default function LandingPage() {
       <div className="container mx-auto px-4 py-20 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-4 text-gray-900">
-            Why choose <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-pink-600">Split</span>?
+            Why choose <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-pink-600">Splitwise</span>?
           </h2>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
             Experience the simplest way to manage shared expenses with your friends and family
@@ -84,10 +84,10 @@ export default function LandingPage() {
         <div className="container mx-auto px-4 py-12 sm:px-6 lg:px-8">
           <div className="text-center">
             <p className="text-sm text-gray-400 mb-4">
-              By using Split, you agree to our Terms of Service and Privacy Policy
+              By using Splitwise, you agree to our Terms of Service and Privacy Policy
             </p>
             <p className="text-xs text-gray-500">
-              © 2024 Split. Made with ❤️ for better expense management
+              2024 Splitwise. Made with <span className="text-red-500">?</span> for better expense management
             </p>
           </div>
         </div>
