@@ -24,18 +24,17 @@ export default function Banner() {
         </div>
         
         <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6 text-white leading-tight">
-          Split expenses with friends in seconds
+          Split expenses with <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-orange-500">friends</span>
         </h1>
         
         <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl mb-10 text-white/90 max-w-3xl mx-auto leading-relaxed">
-          Whether it&apos;s a group trip or dinner, Split makes it easy to track
-          shared expenses and settle up in a single tap.
+          Effortlessly track and settle shared expenses with anyone.
         </p>
         
         <Link href="/group">
           <Button
             size="lg"
-            className="bg-white text-purple-600 hover:bg-gray-100 text-lg sm:text-xl px-8 py-6 rounded-xl font-semibold shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-200 group"
+            className="bg-white text-blue-600 hover:text-white hover:bg-gradient-to-r hover:from-blue-600 hover:to-teal-500 text-lg sm:text-xl px-8 py-6 rounded-xl font-semibold shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-200 group"
           >
             Get Started
             <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />

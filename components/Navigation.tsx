@@ -26,19 +26,19 @@ export default function Navigation() {
         {/* Added new link for 'Your Groups' */}
         <Link
           href="/groups"
-          className="text-white hover:text-teal-200 hover:underline"
+          className="text-white hover:text-gray-700 hover:underline"
         >
           Your Groups
         </Link>
         <Link
           href="/group"
-          className="text-white hover:text-teal-200 hover:underline"
+          className="text-white hover:text-gray-700 hover:underline"
         >
           Create Group
         </Link>
         <Link
           href="/expense"
-          className="text-white hover:text-teal-200 hover:underline"
+          className="text-white hover:text-gray-700 hover:underline"
         >
           Add Expense
         </Link>

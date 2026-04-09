@@ -71,73 +71,112 @@ export default function CreateGroup() {
   };
 
   return (
-    <div className="container mx-auto px-4 py-8 sm:px-6 lg:px-8 max-w-2xl">
-      <h1 className="text-2xl font-bold mb-2">Create a group</h1>
-      <p className="text-gray-600 mb-6">
-        Split expenses with friends, roommates, and more.
-      </p>
-
-      <form onSubmit={handleCreateGroup} className="space-y-6">
-        <div>
-          <label
-            htmlFor="groupName"
-            className="block text-sm font-medium text-gray-700 mb-1"
-          >
-            Group name
-          </label>
-          <Input
-            id="groupName"
-            name="groupName"
-            type="text"
-            placeholder="Enter group name"
-            className="w-full"
-            value={groupName}
-            onChange={(e) => setGroupName(e.target.value)}
-            required
-          />
+    <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
+      <div className="max-w-2xl mx-auto px-4 py-8">
+        {/* Header Section */}
+        <div className="bg-gradient-to-r from-blue-600 to-teal-500 rounded-2xl shadow-xl p-8 mb-8">
+          <h1 className="text-4xl font-bold text-white mb-3">Create a Group</h1>
+          <p className="text-blue-100 text-lg">
+            Split expenses with friends, roommates, and more. Start managing your shared expenses today.
+          </p>
         </div>
 
-        <div>
-          <label
-            htmlFor="inviteEmail"
-            className="block text-sm font-medium text-gray-700 mb-1"
-          >
-            Invite members
-          </label>
-          <div className="flex space-x-2">
-            <Input
-              id="inviteEmail"
-              name="inviteEmail"
-              type="email"
-              placeholder="Enter email address"
-              value={inviteEmail}
-              onChange={(e) => setInviteEmail(e.target.value)}
-              className="flex-grow"
-            />
-            <Button type="button" onClick={handleInvite} disabled={isLoading}>
-              <PlusCircle className="mr-2 h-4 w-4" />
-              Invite
+        {/* Form Card */}
+        <div className="bg-white rounded-xl shadow-lg p-8">
+          <form onSubmit={handleCreateGroup} className="space-y-8">
+            {/* Group Name Input */}
+            <div>
+              <label
+                htmlFor="groupName"
+                className="block text-lg font-semibold text-gray-900 mb-3"
+              >
+                Group Name
+              </label>
+              <Input
+                id="groupName"
+                name="groupName"
+                type="text"
+                placeholder="Enter group name"
+                className="w-full px-4 py-3 text-lg border-2 border-gray-200 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-colors"
+                value={groupName}
+                onChange={(e) => setGroupName(e.target.value)}
+                required
+              />
+            </div>
+
+            {/* Invite Members Section */}
+            <div>
+              <label
+                htmlFor="inviteEmail"
+                className="block text-lg font-semibold text-gray-900 mb-3"
+              >
+                Invite Members
+              </label>
+              <div className="flex space-x-3">
+                <Input
+                  id="inviteEmail"
+                  name="inviteEmail"
+                  type="email"
+                  placeholder="Enter email address"
+                  value={inviteEmail}
+                  onChange={(e) => setInviteEmail(e.target.value)}
+                  className="flex-grow px-4 py-3 text-lg border-2 border-gray-200 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-colors"
+                />
+                <Button 
+                  type="button" 
+                  onClick={handleInvite} 
+                  disabled={isLoading}
+                  className="bg-gradient-to-r from-blue-600 to-teal-500 hover:from-blue-700 hover:to-teal-600 text-white px-6 py-3 rounded-lg font-semibold shadow-md hover:shadow-lg transition-all duration-200"
+                >
+                  <PlusCircle className="mr-2 h-5 w-5" />
+                  Invite
+                </Button>
+              </div>
+            </div>
+
+            {/* Invited Members List */}
+            {invitedMembers.length > 0 && (
+              <div className="bg-gradient-to-r from-blue-50 to-teal-50 rounded-xl p-6 border border-blue-100">
+                <h3 className="text-lg font-semibold text-blue-900 mb-4">
+                  Invited Members ({invitedMembers.length})
+                </h3>
+                <div className="space-y-2">
+                  {invitedMembers.map((email, index) => (
+                    <div key={index} className="flex items-center bg-white rounded-lg px-4 py-3 shadow-sm">
+                      <div className="w-8 h-8 bg-gradient-to-br from-blue-500 to-teal-500 rounded-full flex items-center justify-center text-white text-sm font-bold mr-3">
+                        {email.charAt(0).toUpperCase()}
+                      </div>
+                      <span className="text-gray-700 font-medium">{email}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {/* Submit Button */}
+            <Button 
+              className="w-full bg-gradient-to-r from-blue-600 to-teal-500 hover:from-blue-700 hover:to-teal-600 text-white px-8 py-4 rounded-xl font-bold text-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300" 
+              type="submit" 
+              disabled={isLoading}
+            >
+              {isLoading ? (
+                <span className="flex items-center">
+                  <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                    <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                    <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                  </svg>
+                  Creating...
+                </span>
+              ) : (
+                <span className="flex items-center">
+                  <PlusCircle className="mr-2 h-5 w-5" />
+                  Create Group
+                </span>
+              )}
             </Button>
-          </div>
+          </form>
         </div>
-
-        {invitedMembers.length > 0 && (
-          <div>
-            <h3 className="text-sm font-medium text-gray-700 mb-2">
-              Invited members:
-            </h3>
-            <ul className="list-disc pl-5">
-              {invitedMembers.map((email, index) => (
-                <li key={index}>{email}</li>
-              ))}
-            </ul>
-          </div>
-        )}
-
-        <Button className="w-full" type="submit" disabled={isLoading}>
-          {isLoading ? 'Creating...' : 'Create Group'}
-        </Button>
-      </form>
+      </div>
     </div>
   );
 }
